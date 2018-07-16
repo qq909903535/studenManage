@@ -27,6 +27,7 @@
 
         .codeImg{
           height: 34px;
+          cursor: pointer;
         }
       </style>
 </head>
@@ -61,7 +62,7 @@
                         <input type="text" class="form-control" id="code" placeholder="请输入验证码">           
                       </div>
                       <div class="col-sm-4">
-                          <img class="codeImg" src="../img/code-img.png" alt="">          
+                          <img class="codeImg" src="/login/captchaImg" alt="">          
                         </div>
                     </div>
                   <!-- 按钮 -->
@@ -82,4 +83,17 @@
 </body>
 
 </html>
+
+<script>
+    //入口函数
+    $(function(){
+       $('.codeImg').click(function(){
+          //  console.log("点中啦");
+          //重新获取验证码图片
+          //重新赋值 src属性即可 
+          //问号后面的浏览器都会认为是数据
+          $(this).attr('src',$(this).attr('src')+`?${Math.random()}`)
+       })
+    })
+</script>
 
